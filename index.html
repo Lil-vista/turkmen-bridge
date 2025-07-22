@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cargo Service</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #004080; color: white; padding: 1rem; text-align: center; }
+    nav { background: #e0e0e0; padding: 0.5rem; text-align: center; }
+    nav button { margin: 0 5px; padding: 0.5rem 1rem; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    footer { background: #004080; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cargo Express</h1>
+</header>
+
+<nav>
+  <button onclick="changeLang('tk')">Türkmençe</button>
+  <button onclick="changeLang('en')">English</button>
+  <button onclick="changeLang('ru')">Русский</button>
+  <button onclick="changeLang('zh')">中文</button>
+</nav>
+
+<main>
+  <table id="cargoTable">
+    <thead>
+      <tr>
+        <th>Nireden</th>
+        <th>Nirä</th>
+        <th>Maşyn</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hytaý</td>
+        <td>Türkmenistan</td>
+        <td>Kamaz 5320</td>
+        <td>Ýüklenýär</td>
+      </tr>
+      <tr>
+        <td>Türkmenistan</td>
+        <td>Orsýet</td>
+        <td>Volvo FH</td>
+        <td>Ýolda</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<footer>
+  © 2025 Cargo Express. Ähli hukuklar goralan.
+</footer>
+
+<script>
+  // Dil üýtgetmek üçin ýönekeý funksiýa (näme hemme zat iňlisçe bilen başlar)
+  const translations = {
+    tk: { from: 'Nireden', to: 'Nirä', truck: 'Maşyn', status: 'Status', title: 'Cargo Express' },
+    en: { from: 'From', to: 'To', truck: 'Truck', status: 'Status', title: 'Cargo Express' },
+    ru: { from: 'Откуда', to: 'Куда', truck: 'Машина', status: 'Статус', title: 'Карго Экспресс' },
+    zh: { from: '从', to: '到', truck: '卡车', status: '状态', title: '货运快递' },
+  };
+
+  function changeLang(lang) {
+    const t = translations[lang];
+    document.querySelector('header h1').textContent = t.title;
+    const ths = document.querySelectorAll('thead th');
+    ths[0].textContent = t.from;
+    ths[1].textContent = t.to;
+    ths[2].textContent = t.truck;
+    ths[3].textContent = t.status;
+  }
+</script>
+
+</body>
+</html>
